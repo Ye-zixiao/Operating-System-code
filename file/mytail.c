@@ -6,6 +6,14 @@
 #include"dr_linklist.h"
 #include<assert.h>
 
+/*
+ *这个程序实现的比较垃圾，主要的思想就是就是用双向链表记录文件中每一行的字节数，
+ *然后根据需要的行数计算出从起始位置到tail输出的第一行的字节数距离，用这个作为
+ *lseek的参数，然后用read-write组合输出剩下的部分^-^，属实垃圾程序
+ * 
+ * */
+
+
 int getOpt(const char**);
 const char* getfilename(const char** argv);
 void fill_link(dr_linklist* p, const char* fname);
