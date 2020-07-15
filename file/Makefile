@@ -1,11 +1,12 @@
 CC=gcc
 OPT=-O -Wall
 
-all:myls.o fsync.o mystat.o mytail.o
+all:myls.o fsync.o mystat.o mytail.o createfile.py
 	$(CC) $(OPT) -o myls myls.o
 	$(CC) $(OPT) -o fsync fsync.o
 	$(CC) $(OPT) -o mystat mystat.o
 	$(CC) $(OPT) -o mytail mytail.o
+	python createfile.py
 
 myls.o:myls.c
 	$(CC) $(OPT) -c myls.c
@@ -22,3 +23,4 @@ mytail.o:mytail.c
 clean:
 	rm myls fsync mystat mytail
 	rm mytail.o myls.o fsync.o mystat.o
+	rm outfile
